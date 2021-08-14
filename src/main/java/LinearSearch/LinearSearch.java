@@ -1,8 +1,13 @@
 package LinearSearch;
 
+import java.util.LinkedList;
+
 public class LinearSearch {
 
-    public int search(int[] data, int target) {
+    private LinearSearch() {
+    }
+
+    public static int search(int[] data, int target) {
         for (int i = 0; i < data.length; i++) {
             if (data[i] == target) {
                 return i;
@@ -13,8 +18,7 @@ public class LinearSearch {
 
     public static void main(String[] args) {
         int[] data = {24, 18, 12, 9, 16, 66, 32, 4};
-        LinearSearch ls = new LinearSearch();
-        int res = ls.search(data, 16);
+        int res = LinearSearch.search(data, 16);
         System.out.println(res);
     }
 
