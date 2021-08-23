@@ -1,0 +1,46 @@
+package SelectionSort;
+
+public class SelectionSort {
+
+  private SelectionSort() {}
+
+  public static <E extends Comparable<E>> void sort(E[] arr) {
+
+    int length = arr.length;
+
+    for (int i = 0; i < length; i++) {
+      int minIndex = i;
+      for (int j = i; j < length; j++) {
+        if (arr[minIndex].compareTo(arr[j]) > 0) {
+          minIndex = j;
+        }
+      }
+      swap(arr, i, minIndex);
+    }
+  }
+
+  private static <E> void swap(E[] arr, int i, int minIndex) {
+    E temp = arr[i];
+    arr[i] = arr[minIndex];
+    arr[minIndex] = temp;
+  }
+
+  public static void main(String[] args) {
+    Integer[] arr = {1, 3, 4, 2, 3, 6, 5};
+    SelectionSort.sort(arr);
+    for (int i : arr) {
+      System.out.print(i + " ");
+    }
+    System.out.println();
+
+    Student[] student = {
+      new Student("bobo", 111), new Student("hhhh", 60), new Student("hhhh", 90)
+    };
+
+    SelectionSort.sort(student);
+    for (Student s : student) {
+      System.out.print(s + " ");
+    }
+    System.out.println();
+  }
+}
