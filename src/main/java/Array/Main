@@ -1,27 +1,28 @@
-package Array.Main;
+package Array;
 
 public class Main {
 
-  public static void main(String[] args) {
-    Array array = new Array(20);
-    for (int i = 0; i < 10; i++) {
-      array.addLast(i);
+    public static void main(String[] args) {
+        System.out.println("-----");
+        Array array = new Array(20);
+        for (int i = 0; i < 10; i++) {
+            array.addLast(i);
+        }
+        System.out.println(array);
+
+        array.add(1, 11);
+        System.out.println(array);
+
+        array.addFirst(-1);
+        System.out.println(array);
+
+        array.remove(2);
+        System.out.println(array);
+
+        array.removeFirst();
+        System.out.println(array);
+
+        array.removeLast();
+        System.out.println(array);
     }
-    System.out.println(array);
-
-    array.add(1, 11);
-    System.out.println(array);
-
-    array.addFirst(-1);
-    System.out.println(array);
-
-    array.remove(2);
-    System.out.println(array);
-
-    array.removeFirst();
-    System.out.println(array);
-
-    array.removeLast();
-    System.out.println(array);
-  }
 }

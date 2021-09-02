@@ -99,7 +99,7 @@ public class Array<E> {
             data[i] = data[i + 1];
         }
         size--;
-        if (size == getCapacity() / 2) {
+        if (size == getCapacity() / 4 && getCapacity()/2 !=0) {
             resize(getCapacity() / 2);
         }
         return res;
