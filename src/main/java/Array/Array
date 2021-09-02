@@ -37,7 +37,7 @@ public class Array<E> {
 
     public void add(int index, E e) {
         if (size == getCapacity()) {
-            throw new IllegalArgumentException("Array is full !");
+            resize(2 * getCapacity());
         }
         if (index < 0 && index > size) {
             throw new IllegalArgumentException("index is failed !");
@@ -48,6 +48,14 @@ public class Array<E> {
         }
         data[index] = e;
         size++;
+    }
+
+    private void resize(int newCapacity) {
+        E[] newData = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
     E get(int index) {
@@ -91,6 +99,9 @@ public class Array<E> {
             data[i] = data[i + 1];
         }
         size--;
+        if (size == getCapacity() / 2) {
+            resize(getCapacity() / 2);
+        }
         return res;
     }
 
