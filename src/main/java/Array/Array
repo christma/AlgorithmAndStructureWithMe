@@ -58,7 +58,9 @@ public class Array<E> {
         data = newData;
     }
 
-    E get(int index) {
+
+
+    public E get(int index) {
         if (index < 0 && index > size) {
             throw new IllegalArgumentException("index is failed !");
         }
@@ -99,7 +101,7 @@ public class Array<E> {
             data[i] = data[i + 1];
         }
         size--;
-        if (size == getCapacity() / 4 && getCapacity()/2 !=0) {
+        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
             resize(getCapacity() / 2);
         }
         return res;
@@ -119,6 +121,15 @@ public class Array<E> {
             remove(index);
         }
     }
+
+    public E getLast() {
+        return get(size - 1);
+    }
+
+    public E getFirst() {
+        return get(0);
+    }
+
 
     @Override
     public String toString() {
