@@ -1,6 +1,7 @@
 package MergSort;
 
 import Array.Array;
+import InsertionSort.InsertionSort;
 
 import java.util.Arrays;
 
@@ -14,13 +15,21 @@ public class MergSort {
 
     private static <E extends Comparable<E>> void sort(E[] arr, int l, int r) {
 
-        if (l >= r) {
+//        if (l >= r) {
+//            return;
+//        }
+
+        if (r - l <= 15) {
+            InsertionSort.sort(arr, l, r);
             return;
         }
         int mid = (l + r) / 2;
         sort(arr, l, mid);
         sort(arr, mid + 1, r);
-        merge(arr, l, mid, r);
+        if (arr[mid].compareTo(arr[mid + 1]) > 0) {
+            merge(arr, l, mid, r);
+        }
+
     }
 
     public static <E extends Comparable<E>> void merge(E[] arr, int l, int mid, int r) {
