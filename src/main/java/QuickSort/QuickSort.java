@@ -1,8 +1,8 @@
 package QuickSort;
 
 
-public class QuickSork {
-    private QuickSork() {
+public class QuickSort {
+    private QuickSort() {
     }
 
     public static <E extends Comparable<E>> void sort(E[] arr) {
